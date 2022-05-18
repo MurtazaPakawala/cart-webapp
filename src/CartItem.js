@@ -24,7 +24,7 @@ class CartItem extends React.Component {
               alt="decrease"
               className="action-icons"
               src="https://as1.ftcdn.net/v2/jpg/03/73/49/86/1000_F_373498649_nBxauQ0ipBSVrVcMpWWVmTpXu3BLvRyY.jpg"
-              onClick={this.decreaseQty}
+              onClick={() => this.props.decreaseQty(this.props.product)}
             ></img>
             <img
               alt="increase"
@@ -36,6 +36,7 @@ class CartItem extends React.Component {
               alt="delete"
               className="action-icons"
               src="https://as2.ftcdn.net/v2/jpg/01/90/89/15/1000_F_190891550_N7uKp2aHE3mOc20dmtDytj7atgvbhdOu.jpg"
+              onClick={() => this.props.onDelete(this.props.product.id)}
             ></img>
             {/* buttons for the actions */}
           </div>

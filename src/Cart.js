@@ -30,10 +30,31 @@ class Cart extends React.Component {
       ],
     };
   }
+  onDelete = (id) => {
+    const { products } = this.state;
+    const items = products.filter((item) => item.id !== id);
+
+    this.setState({
+      products: items,
+    });
+  };
   increaseQty = (product) => {
     const { products } = this.state;
     const index = products.indexOf(product);
     products[index].qty++;
+    this.setState({
+      products,
+    });
+  };
+  decreaseQty = (product) => {
+    const { products } = this.state;
+    const index = products.indexOf(product);
+
+    if (products[index].qty == 0) {
+      return;
+    }
+
+    products[index].qty--;
     this.setState({
       products,
     });
@@ -47,6 +68,8 @@ class Cart extends React.Component {
               product={item}
               key={item.id}
               increaseQty={this.increaseQty}
+              decreaseQty={this.decreaseQty}
+              onDelete={this.onDelete}
             />
           );
         })}
