@@ -50,7 +50,7 @@ class Cart extends React.Component {
     const { products } = this.state;
     const index = products.indexOf(product);
 
-    if (products[index].qty == 0) {
+    if (products[index].qty === 0) {
       return;
     }
 
